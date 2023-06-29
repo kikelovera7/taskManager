@@ -1,6 +1,6 @@
 import './App.css'
-import ExpenseItem from './components/ExpenseItem'
-
+import ExpenseItem from './components/Expenses/ExpenseItem'
+import NewExpense from './components/NewExpense/NewExpense'
 function App() {
   const expenses = [
     {title:'car insurance', date:new Date(), amount:1234.5},
@@ -11,7 +11,7 @@ function App() {
   ]
   return (
     <>
-      <div>HOLA MUNDOOOO DESDE REACT!!!</div>
+      <NewExpense />
       {
       expenses.map((x,i) => {
         return <ExpenseItem key={i} value={x}></ExpenseItem>
