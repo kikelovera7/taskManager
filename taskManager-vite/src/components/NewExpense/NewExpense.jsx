@@ -2,10 +2,14 @@ import './NewExpense.css'
 import ExpenseForm from './ExpenseForm';
 
 
-export default function NewExpense(){
+export default function NewExpense(props){
+
+    const formHandler = (formData)=>{
+        props.addNewExpense(formData)
+    }
     return(
         <div className='new-expense'>
-            <ExpenseForm></ExpenseForm>
+            <ExpenseForm formHandler={formHandler}></ExpenseForm>
         </div>
     );
 }
