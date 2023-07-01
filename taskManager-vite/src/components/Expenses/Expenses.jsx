@@ -15,14 +15,20 @@ export default function Expenses(props){
         return (x.date.getFullYear().toString() === filteredYear) || filteredYear == ''; 
     })
 
+    let expenseContent = <div>NO HAY EXPENSES PARA MOSTRAR EN ESTA FECHA</div>;
+    if(filteredExpenses.length > 0){
+        expenseContent = filteredExpenses.map((x,i) => {
+            return <ExpenseItem key={i} value={x}></ExpenseItem>
+            })
+    }
+
     return (
         <div>
           <Card className='expenses'>
             <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
             {
-            filteredExpenses.map((x,i) => {
-                return <ExpenseItem key={i} value={x}></ExpenseItem>
-                })
+                expenseContent
+
             }
           </Card>
         </div>
